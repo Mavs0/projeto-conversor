@@ -1,0 +1,13 @@
+# Dockerfile.test
+FROM openjdk:17
+
+WORKDIR /app
+
+# Copia os arquivos do projeto
+COPY . .
+
+# Compila e executa os testes
+RUN javac -d bin src/src/ConversorTemperatura.java tests/tests/ConversorTemperaturaTest.java
+
+# Executa os testes automaticamente ao rodar o container
+CMD ["java", "-cp", "bin", "tests.tests.ConversorTemperaturaTest"]

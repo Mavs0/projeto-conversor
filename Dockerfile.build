@@ -1,0 +1,10 @@
+# Dockerfile.build
+FROM openjdk:17
+
+WORKDIR /app
+
+# Copia os arquivos do projeto
+COPY . .
+
+# Compila apenas
+RUN javac -d bin src/src/ConversorTemperatura.java
